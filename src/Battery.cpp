@@ -54,6 +54,7 @@ void batteryAdcInit() {
 
 }
 
+
 float batteryAdcRead() {
   batteryPinVoltage = 0.0;
   for (int i=0; i<BATTERY_OVERSAMPLE; i++) {
@@ -61,7 +62,7 @@ float batteryAdcRead() {
     batteryPinVoltage += esp_adc_cal_raw_to_voltage(batteryRaw, &adc1Chars);
   }
   batteryPinVoltage *= 0.001 / BATTERY_OVERSAMPLE;
-  batteryVoltage = (batteryPinVoltage * 2.0); // Voltage divider and GPIO drop
+  batteryVoltage = (batteryPinVoltage * 2.0 * BATTERY_VOLTAGE_CORRECT); // Voltage divider and GPIO drop
   INFO(DEBUG_printf(FST("Battery: %d  %.3fV  %.3fV\n"), batteryRaw, batteryPinVoltage, batteryVoltage));
   #ifdef BATTERY_PROTECT_VOLTAGE 
     if (batteryVoltage <= BATTERY_PROTECT_VOLTAGE) {

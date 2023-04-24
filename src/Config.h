@@ -38,7 +38,7 @@ No.| GPIO | IO | RTC | ADC | Default   | Function
 6  |  34  | I  | R04 | 1_6 |           | Motion 1
 7  |  35  | I  | R05 | 1_7 |           | Motion 2
 4  |  36  | I  | R00 | 1_0 | SENSOR_VP | 
-5  |  39  | I  | R03 | 1_3 | SENSOR_VN | Battery ADC
+5  |  39  | I  | R03 | 1_3 | SENSOR_VN | Battery ADC | GND - 33K - GPIO-39 - 33K - GPIO-25
 3  |  EN  | I  |     |     | RESET     | 
 ---+------+----+-----+-----+-----------+---------------------------
 (IO6 to IO11 are used by the internal FLASH and are not useable)
@@ -83,6 +83,7 @@ GPIO_34 - GPIO_39 have no internal pullup / pulldown.
 #define BME_ADDR 0x76
 #endif
 
+
 // For old ESP32 that do not have the reference voltage in a fuse:
 // The reference voltage can be routed to a pin and measured with a multimeter.
 // #define ADC_CHECK_VREF_PIN 26
@@ -97,6 +98,9 @@ GPIO_34 - GPIO_39 have no internal pullup / pulldown.
 #endif
 #ifndef BATTERY_OVERSAMPLE
 #define BATTERY_OVERSAMPLE 8
+#endif
+#ifndef BATTERY_VOLTAGE_CORRECT
+#define BATTERY_VOLTAGE_CORRECT 1.0
 #endif
 
 #ifndef BATTERY_SEND_INTERVAL_S

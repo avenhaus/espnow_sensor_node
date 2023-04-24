@@ -11,8 +11,10 @@
 
 // GPIO 15 to Ground  during boot / while writing bootloader can disable log messages
 
-// %HOMEPATH%\.platformio\packages\tool-esptoolpy\esptool.py --chip esp32 --port "COM7" --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode qout --flash_freq 80m --flash_size detect 0x1000 bootloader.bin
+// ESP-IDF Terminal: 
+// esptool.exe --chip esp32 --port COM10 --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode qout --flash_freq 80m --flash_size detect 0x1000 bootloader.bin
 
+// %HOMEPATH%\.platformio\packages\tool-esptoolpy\esptool.py --chip esp32 --port "COM7" --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode qout --flash_freq 80m --flash_size detect 0x1000 bootloader.bin
 // %HOMEPATH%\esp\esp-idf\components\esptool_py\esptool\esptool.py -p COM7 -b 460800 --before default_reset --after hard_reset --chip esp32 write_flash --flash_mode qout --flash_freq 80m --flash_size detect 0x1000 bootloader.bin
 
 

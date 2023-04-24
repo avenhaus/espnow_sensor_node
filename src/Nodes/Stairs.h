@@ -1,11 +1,11 @@
 
-#define NODE_NAME "Hallway"
-#define OTA_HOSTNAME  "espnow-hallway-ota"
+#define NODE_NAME "Stairs"
+#define OTA_HOSTNAME  "espnow-stairs-ota"
 
-#define BATTERY_VOLTAGE_CORRECT (3.290 / 3.258)
+#define BATTERY_VOLTAGE_CORRECT (3.283 / 3.339)
 
-#define USE_I2C 0
-#define USE_BH1750 0
+#define USE_I2C 1
+#define USE_BH1750 1
 #define USE_BME280 0
 #define USE_BME680 0
 
